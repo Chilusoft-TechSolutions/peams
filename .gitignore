@@ -23,5 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 db.sqlite3
-!backend/**/migrations/__init__.py
+# !backend/**/migrations/__init__.py
 *.pyc
+*/__pycache__
+*/migrations
