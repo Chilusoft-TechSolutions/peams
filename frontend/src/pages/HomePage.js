@@ -3,13 +3,13 @@ import AuthContext from '../context/AuthContext';
 
 const HomePage = () => {
     const { authTokens, logoutUser } = useContext(AuthContext);
-    let [profile, setProfile] = useState([])
+    let [profile, setUser] = useState([])
 
     useEffect(() => {
-        getProfile()
+        getUser()
     },[])
 
-    const getProfile = async() => {
+    const getUser = async() => {
         let response = await fetch('http://127.0.0.1:8000/api/profile', {
         method: 'GET',
         headers:{
@@ -20,7 +20,7 @@ const HomePage = () => {
         let data = await response.json()
         console.log(data)
         if(response.status === 200){
-            setProfile(data)
+            setUser(data)
         } else if(response.statusText === 'Unauthorized'){
             logoutUser()
         }
